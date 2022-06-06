@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+alias c='clear'
+alias cat='bat'
+alias grep='grep -i'
+alias l='exa -l'
+alias la='exa -la'
+alias ls='exa'
+alias top='htop'

@@ -50,12 +50,11 @@ git clone https://github.com/Leyka/pi.git && cd pi
 Install `zsh` and `oh-my-zsh` first
 
 ```sh
-sudo apt update -qq
-sudo apt install -y zsh
+sudo apt update && sudo apt install -y zsh
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 ```
 
-Click enter when prompting to create a .zshrc file then run setup script
+Run setup script
 
 ```
 ./setup.sh
