@@ -1,6 +1,6 @@
 # 🥧 pi
 
-Dotfiles for Raspberry pi running on Ubuntu Server 64 bit
+my Raspberry Pi setup for dev
 
 ## Installation
 
@@ -39,26 +39,23 @@ ssh skan@<Raspberry Pi’s IP address>
 sudo deluser -remove-home ubuntu
 ```
 
-### Github
-
-Generate SSH key
-
-```sh
-ssh-keygen -t ed25519
-cat ~/.ssh/id_ed25519.pub
-```
-
-Paste SSH key in Github settings
-
-### Run script
+### Launch setup
 
 Clone this repo
 
 ```
-git clone git@github.com:Leyka/pi.git && cd pi
+git clone https://github.com/Leyka/pi.git && cd pi
 ```
 
-Run setup script
+Install `zsh` and `oh-my-zsh` first
+
+```sh
+sudo apt update -qq
+sudo apt install -y zsh
+sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+```
+
+Click enter when prompting to create a .zshrc file then run setup script
 
 ```
 ./setup.sh
