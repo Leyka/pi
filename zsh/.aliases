@@ -1,9 +1,17 @@
 #!/usr/bin/env bash
 
+alias ,,='cd ..'
+alias ..='cd ..'
+alias 2..='cd ../..'
+alias 3..='cd ../../..'
+
 alias c='clear'
 alias cat='bat'
+alias cx='chmod +x'
 alias grep='grep -i'
 alias l='exa -l'
 alias la='exa -la'
 alias ls='exa'
+alias mkdir='mkdir -p'
+alias ping='ping -c 4'
 alias top='htop'
