@@ -9,7 +9,7 @@ sudo apt update -qq && sudo apt upgrade -yqq
 
 packages=(
   curl
-  exa
+  eza
   htop
   iftop
   make
