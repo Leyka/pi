@@ -7,7 +7,7 @@ alias 3..='cd ../../..'
 alias 4..='cd ../../../..'
 
 alias c='clear'
-alias cat='bat'
+alias cat='batcat'
 alias cx='chmod +x'
 alias grep='grep -i'
 alias l='eza -l'

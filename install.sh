@@ -8,6 +8,7 @@ sudo timedatectl set-timezone America/Toronto
 sudo apt update -qq && sudo apt upgrade -yqq
 
 packages=(
+  bat
   curl
   eza
   htop
