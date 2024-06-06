@@ -28,7 +28,7 @@ sudo ufw enable
 sudo ufw allow from 192.168.1.0/24
 
 # Z
-[ ! -f ~/.z ] && curl -O https://raw.githubusercontent.com/rupa/z/master/z.sh ~/.z
+[ ! -f ~/.z ] && curl -o ~/.z https://raw.githubusercontent.com/rupa/z/master/z.sh
 
 # Nvim
 rm -rf ~/.config/nvim && stow nvim
@@ -38,7 +38,7 @@ nvim +'PlugInstall --sync' +qa
 
 # Install oh my zsh packages
 [ -d ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions ] || git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
-[ -d ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting ] || bgit clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+[ -d ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting ] || git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 
 # Zsh
 [ -f ~/.hushlogin ] || touch ~/.hushlogin
