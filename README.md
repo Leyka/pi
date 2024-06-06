@@ -2,7 +2,7 @@
 
 my Raspberry Pi setup for dev
 
-### Launch setup
+## Launch setup
 
 Install and set `zsh`
 
@@ -28,3 +28,7 @@ Run
 ```
 ./install.sh
 ```
+
+### TODO
+
+- Add Tmux
