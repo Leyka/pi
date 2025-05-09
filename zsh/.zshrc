@@ -51,7 +51,7 @@ zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
 zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 
 # Shell integrations
-eval "$(fzf --zsh)"
+eval "$(fzf)"
 eval "$(zoxide init --cmd cd zsh)"
 
 # Aliases
@@ -66,5 +66,6 @@ alias l='ls -CF'
 alias mkdir='mkdir -p'
 alias ping='ping -c 4'
 alias s='sudo'
+alias sz='source ~/.zshrc'
 alias top='htop'
 alias vim='nvim'
