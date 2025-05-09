@@ -7,7 +7,6 @@ sudo timedatectl set-timezone America/Toronto
 
 sudo apt update -q
 sudo apt upgrade -yq
-
 packages=(
   bat
   curl
@@ -15,12 +14,14 @@ packages=(
   htop
   make
   mosh
-  neovim
   ripgrep
   stow
+  tig
   tree
+  vim
   ufw
 )
+
 sudo apt install -yqq "${packages[@]}"
 sudo apt autoremove -yqq && sudo apt autoclean -yqq
 
@@ -33,14 +34,9 @@ fi
 sudo ufw --force enable
 sudo ufw allow from 192.168.1.0/24
 
-# Neovim
-rm -rf ~/.config/nvim
-stow nvim
-if [[ ! -f ~/.config/nvim/autoload/plug.vim ]]; then
-  curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs \
-    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-fi
-nvim +'PlugInstall --sync' +qa
+# Vim
+rm -f ~/.vimrc
+stow vim
 
 # Zsh
 rm -f ~/.zshrc
