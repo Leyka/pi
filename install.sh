@@ -20,10 +20,14 @@ packages=(
   stow
   tree
   ufw
-  zoxide
 )
 sudo apt install -yqq "${packages[@]}"
 sudo apt autoremove -yqq && sudo apt autoclean -yqq
+
+# Z - jump around
+if [ ! -d "$HOME/.z" ]; then
+  git clone https://github.com/rupa/z.git ~/.z
+fi
 
 # Firewall
 sudo ufw --force enable
