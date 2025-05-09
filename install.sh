@@ -12,7 +12,6 @@ packages=(
   curl
   eza
   htop
-  iftop
   make
   mosh
   neovim
@@ -39,7 +38,7 @@ nvim +'PlugInstall --sync' +qa
 
 # Nvm
 if ! [ -x "$(command -v nvm)" ]; then
-  curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
+  curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash
   source ~/.zshrc
 fi
 
