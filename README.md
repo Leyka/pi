@@ -14,7 +14,7 @@ sudo chsh -s "$(which zsh)"
 Clone
 
 ```
-git clone https://github.com/Leyka/pi.git && cd pi
+git clone https://github.com/Leyka/pi.git .dotfiles && cd .dotfiles
 ```
 
 Run

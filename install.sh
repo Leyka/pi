@@ -26,11 +26,6 @@ packages=(
 sudo apt install -yqq "${packages[@]}"
 sudo apt autoremove -yqq && sudo apt autoclean -yqq
 
-# Z - jump around
-if [ ! -d "$HOME/.z" ]; then
-  git clone https://github.com/rupa/z.git ~/.z
-fi
-
 # Firewall
 sudo ufw --force enable
 sudo ufw allow from 192.168.1.0/24
@@ -40,11 +35,11 @@ rm -f ~/.vimrc
 stow vim
 
 # Redis
-stow redis
+sudo rm -rf /etc/redis/redis.conf
+sudo ln -s $HOME/.dotfiles/redis/redis.conf /etc/redis/redis.conf
 sudo systemctl enable redis-server
 sudo systemctl start redis-server
 
 # Zsh
-rm -f ~/.zshrc
+rm -f ~/.zshrc ~/.p10k.zsh
 stow zsh
-source ~/.zshrc

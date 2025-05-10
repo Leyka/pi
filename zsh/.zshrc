@@ -1,3 +1,8 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 # Configure zinit
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
 [ ! -d $ZINIT_HOME ] && mkdir -p "$(dirname $ZINIT_HOME)"
@@ -15,9 +20,13 @@ zinit light zsh-users/zsh-syntax-highlighting
 # Add Snippets
 zinit snippet OMZP::colorize
 zinit snippet OMZP::common-aliases
+zinit snippet OMZP::git
 
 # Load Zsh completions
 autoload -Uz compinit && compinit
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 # Key bindings
 bindkey -e
@@ -40,9 +49,6 @@ setopt hist_find_no_dups
 # Completion styling
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
-
-# Shell integrations
-source ~/.z/z.sh
 
 # Aliases
 alias ..='cd ..'
