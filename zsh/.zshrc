@@ -55,6 +55,8 @@ eval "$(fzf --zsh)"
 source ~/.z/z.sh
 
 # Aliases
+alias ..='cd ..'
+alias ...='cd ../..'
 alias c='clear'
 alias cat='batcat'
 alias cx='chmod +x'

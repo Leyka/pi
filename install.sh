@@ -14,6 +14,7 @@ packages=(
   htop
   make
   mosh
+  redis-server
   ripgrep
   stow
   tig
@@ -37,6 +38,11 @@ sudo ufw allow from 192.168.1.0/24
 # Vim
 rm -f ~/.vimrc
 stow vim
+
+# Redis
+stow redis
+sudo systemctl enable redis-server
+sudo systemctl start redis-server
 
 # Zsh
 rm -f ~/.zshrc
