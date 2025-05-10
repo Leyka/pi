@@ -28,7 +28,11 @@ sudo apt autoremove -yqq && sudo apt autoclean -yqq
 
 # Firewall
 sudo ufw --force enable
-sudo ufw allow from 192.168.1.0/24
+# Allow specific services instead of entire subnet
+# Allow Redis port if you need to access it from other devices
+sudo ufw allow 6379/tcp comment 'Redis'
+# Allow SSH
+sudo ufw allow 22/tcp comment 'SSH'
 
 # Vim
 rm -f ~/.vimrc
@@ -36,9 +40,20 @@ stow vim
 
 # Redis
 sudo rm -rf /etc/redis/redis.conf
-sudo ln -s $HOME/.dotfiles/redis/redis.conf /etc/redis/redis.conf
+sudo cp $HOME/.dotfiles/redis/redis.conf /etc/redis/redis.conf
+sudo chown redis:redis /etc/redis/redis.conf
+sudo chmod 640 /etc/redis/redis.conf
+sudo mkdir -p /var/log/redis
+sudo chown redis:redis /var/log/redis
+sudo chmod 750 /var/log/redis
+# Ensure redis-server directory exists
+sudo mkdir -p /var/lib/redis
+sudo chown redis:redis /var/lib/redis
+sudo chmod 750 /var/lib/redis
+sudo systemctl restart redis-server
 sudo systemctl enable redis-server
-sudo systemctl start redis-server
+# Verify Redis is running
+sudo systemctl status redis-server --no-pager || echo "Redis failed to start, check logs with: sudo journalctl -xeu redis-server"
 
 # Zsh
 rm -f ~/.zshrc ~/.p10k.zsh
