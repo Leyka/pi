@@ -1,10 +1,8 @@
 # Configure zinit
-ZINIT_HOME="${HOME}/.local/share/zinit/zinit.git"
-if [ ! -d "$ZINIT_HOME" ]; then
-    mkdir -p "$(dirname $ZINIT_HOME)"
-    git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
-fi
-source "$ZINIT_HOME/zinit.zsh"
+ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
+[ ! -d $ZINIT_HOME ] && mkdir -p "$(dirname $ZINIT_HOME)"
+[ ! -d $ZINIT_HOME/.git ] && git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
+source "${ZINIT_HOME}/zinit.zsh"
 
 # Add Powerlevel10k
 zinit ice depth=1
@@ -13,13 +11,10 @@ zinit light romkatv/powerlevel10k
 # Add Zsh plugins
 zinit light zsh-users/zsh-autosuggestions
 zinit light zsh-users/zsh-syntax-highlighting
-zinit light zsh-users/zsh-completions
 
 # Add Snippets
 zinit snippet OMZP::colorize
 zinit snippet OMZP::common-aliases
-zinit snippet OMZP::git
-zinit snippet OMZP::sudo
 
 # Load Zsh completions
 autoload -Uz compinit && compinit
@@ -28,7 +23,6 @@ autoload -Uz compinit && compinit
 bindkey -e
 bindkey '^p' history-search-backward
 bindkey '^n' history-search-forward
-zinit light Aloxaf/fzf-tab
 
 # History
 HISTSIZE=10000
@@ -46,12 +40,8 @@ setopt hist_find_no_dups
 # Completion styling
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
-zstyle ':completion:*' menu no
-zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
-zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 
 # Shell integrations
-eval "$(fzf --zsh)"
 source ~/.z/z.sh
 
 # Aliases

@@ -10,8 +10,8 @@ sudo apt upgrade -yq
 packages=(
   bat
   curl
-  fzf
   htop
+  jq
   make
   mosh
   redis-server
