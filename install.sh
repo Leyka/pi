@@ -38,20 +38,10 @@ sudo ufw allow 22/tcp comment 'SSH'
 rm -f ~/.vimrc
 stow vim
 
-# Redis
-sudo rm -rf /etc/redis/redis.conf
-sudo cp $HOME/.dotfiles/redis/redis.conf /etc/redis/redis.conf
-sudo chown redis:redis /etc/redis/redis.conf
-sudo chmod 640 /etc/redis/redis.conf
-sudo mkdir -p /var/log/redis
-sudo chown redis:redis /var/log/redis
-sudo chmod 750 /var/log/redis
-# Ensure redis-server directory exists
-sudo mkdir -p /var/lib/redis
-sudo chown redis:redis /var/lib/redis
-sudo chmod 750 /var/lib/redis
-sudo systemctl restart redis-server
+# Redis - using default configuration
+sudo apt-get install -y redis-server
 sudo systemctl enable redis-server
+sudo systemctl restart redis-server
 # Verify Redis is running
 sudo systemctl status redis-server --no-pager || echo "Redis failed to start, check logs with: sudo journalctl -xeu redis-server"
 
